@@ -1,0 +1,16 @@
+{
+  // pick a theme just for this project
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+
+  // optional: custom colors so the window is visually unique
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#05ac21",
+    "titleBar.activeForeground": "#ffffff",
+    "activityBar.background": "#197a05",
+    "statusBar.background": "#098f14",
+    "statusBar.foreground": "#ffffff"
+  },
+
+  // lock colors (don’t auto switch with OS)
+  "window.autoDetectColorScheme": false
+}
