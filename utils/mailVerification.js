@@ -31,6 +31,7 @@ exports.mailerFun = async (email, name, userId) => {
              <a href=${baseurl + "verify/" + userId + "/" + uniqueString
       } style=" color:white"> verify </a> 
               
+      
               </h2>
           <p style="font-size:0.9em;">Regards,<br />Globalboardworld-10q</p>
           <hr style="border:none;border-top:1px solid #eee" />
