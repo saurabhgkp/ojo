@@ -42,7 +42,7 @@ exports.mailerFun = async (email, name, userId) => {
             </p>
           </div>
         </div>
-      </div>`, // html body
+      </div>`, 
   });
   if (info) {
     console.log(info, "info")
