@@ -28,7 +28,7 @@ exports.mailerFun = async (email, name, userId) => {
           <p style="font-size:1.1em">Hi,</p>
           <p>Thank you for choosing Globalboardworld-10q. Use the following Link to complete your Sign Up procedures</p>
           <h2 style="background: #4044ee;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">
-             <a href=${baseurl + "verify/" + userId + "/" + uniqueString
+             <a href=${baseurl + "v1/verify/" + userId + "/" + uniqueString
       } style=" color:white"> verify </a> 
               
       
@@ -44,7 +44,12 @@ exports.mailerFun = async (email, name, userId) => {
         </div>
       </div>`, // html body
   });
- 
+  if (info) {
+    console.log(info, "info")
+  }
+  else {
+    throw new Error("something went wrong")
+  }
   const newVerification = await bcrypt.hash(uniqueString, 10);
   const data = await User.findByIdAndUpdate(userId, {
     uniqueString: newVerification,
