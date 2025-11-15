@@ -16,7 +16,7 @@ exports.mailerFun = async (email, name, userId) => {
     },
   });
   let info = await transporter.sendMail({
-    from: '"Globalboardworld-10q" <process.env.FROM>', // sender address
+    from: `"Globalboardworld-10q" <${process.env.USER_EMAIL}>`, // sender address
     to: `${name} <${email}>`, // list of receivers /name /email
     subject: "verification mail ", // Subject line
     text: "verification mail", // plain text body
@@ -44,6 +44,12 @@ exports.mailerFun = async (email, name, userId) => {
         </div>
       </div>`, // html body
   });
+  if (info) {
+    console.log(info, "info")
+  }
+  else {
+    throw new Error("something went wrong")
+  }
   const newVerification = await bcrypt.hash(uniqueString, 10);
   const data = await User.findByIdAndUpdate(userId, {
     uniqueString: newVerification,
