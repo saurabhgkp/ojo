@@ -44,12 +44,7 @@ exports.mailerFun = async (email, name, userId) => {
         </div>
       </div>`, // html body
   });
-  if (info) {
-    console.log(info, "info")
-  }
-  else {
-    throw new Error("something went wrong")
-  }
+ 
   const newVerification = await bcrypt.hash(uniqueString, 10);
   const data = await User.findByIdAndUpdate(userId, {
     uniqueString: newVerification,
