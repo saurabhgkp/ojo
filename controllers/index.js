@@ -70,7 +70,7 @@ exports.verify = asyncMiddleware(async (req, res) => {
         isKey.isActive = true
         await isKey.save();
         const token = jwt.sign({ userId: userId }, process.env.JWT_SECRET);
-        return res.redirect(`${process.env.FRONTURL}?token=${token}`);
+        return res.redirect(`https://surabhfrontend-qssr.vercel.app?token=${token}`);
         // return res.status(201).json({
         //     message: "verification  Successfully",
         //     status: " verifed ",
