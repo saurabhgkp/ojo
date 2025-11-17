@@ -49,7 +49,7 @@ exports.register = asyncMiddleware(async (req, res) => {
         const data = new User({ firstName, lastName, email, password: hashedPassword, role });
         await data.save();
         var userId = data._id.toString();
-        mailVarification.mailerFun(email, firstName, userId)
+      await  mailVarification.mailerFun(email, firstName, userId)
         res.status(201).json({
             message: "verification mail is sent Successfully",
             userId: userId,
