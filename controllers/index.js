@@ -48,7 +48,7 @@ exports.register = asyncMiddleware(async (req, res) => {
     if (userInDB.length === 0) {
         const data = new User({ firstName, lastName, email, password: hashedPassword, role });
         await data.save();
-        var userId = data._id
+        var userId = data._id.toString();
         mailVarification.mailerFun(email, firstName, userId)
         res.status(201).json({
             message: "verification mail is sent Successfully",
@@ -70,7 +70,7 @@ exports.verify = asyncMiddleware(async (req, res) => {
         isKey.isActive = true
         await isKey.save();
         const token = jwt.sign({ userId: userId }, process.env.JWT_SECRET);
-        return res.redirect(`https://surabhfrontend-qssr.vercel.app?token=${token}`);
+        return res.redirect(`https://surabhfrontend-qssr.vercel.app/login`);
         // return res.status(201).json({
         //     message: "verification  Successfully",
         //     status: " verifed ",
