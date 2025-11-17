@@ -67,8 +67,8 @@ exports.createCheckoutSession = async (req, res) => {
         },
       ],
       metadata: { orderId, userId },
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel",
+      success_url: "https://surabhfrontend-qssr.vercel.app/order",
+      cancel_url: "https://surabhfrontend-qssr.vercel.app/order",
     });
     console.log(session, "session.url===================");
     res.status(200).json({ paymentUrl: session.url }); // ✅ one response only
