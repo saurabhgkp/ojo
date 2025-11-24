@@ -21,7 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: '15mb' }));
 
 
-
+app.use("/", (req,res)=>{
+res.send("server is running")
+});
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/users");
 const adminRouter = require("./routes/admin");
